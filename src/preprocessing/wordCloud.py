@@ -52,12 +52,18 @@ for i, book in enumerate(data, 0):
     data[i] = re.sub(r"\\n", " ", data[i])
     # remove stopwords 
     data[i] = ' '.join([word for word in data[i].split() if word not in stop_words]) #remove_stopwords(data[i], stop_words)
+    
+    
 big_string = ""
 for book in data:
     big_string += book + " "
     
-wordcloud = WordCloud(width=1600, height=800,max_font_size=200).generate(big_string)
-plt.figure(figsize=(12,10))
-plt.imshow(wordcloud, interpolation="bilinear")
-plt.axis("off")
-plt.show()
+output_file = "../../data/bible_corpus.txt"
+with open(output_file, "w") as file:
+    file.write(big_string)
+    
+# wordcloud = WordCloud(width=1600, height=800,max_font_size=200).generate(big_string)
+# plt.figure(figsize=(12,10))
+# plt.imshow(wordcloud, interpolation="bilinear")
+# plt.axis("off")
+# plt.show()
