@@ -1,3 +1,11 @@
+import nltk
+nltk.download('stopwords')
+import glob
+from nltk.corpus import stopwords
+
+# ... (rest of your code)
+
+
 data = [] 
 ifiles = glob.glob("books/*.txt")
 for ifile in ifiles: 
